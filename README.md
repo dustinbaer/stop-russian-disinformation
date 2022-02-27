@@ -10,6 +10,18 @@ sh stop-russian-disinformation.sh &
 
 You need to run it on a linux machine with a bash shell installed
 
+# Build Docker Container
+
+```
+docker build -t stop-russian-disinformation -f stop-russian-disinformation.Dockerfile .
+```
+
+# Run Docker Container
+
+```
+docker run -t stop-russian-disinformation
+```
+
 # Disclaimer 
 
 Use it on your own risk, because DDoS-Attacks are placed 
