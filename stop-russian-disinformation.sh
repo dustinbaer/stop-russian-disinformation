@@ -4,10 +4,8 @@ TARGETS="https://lenta.ru/ https://ria.ru/ https://ria.ru/lenta/ https://www.rbc
 
 echo 'stop disinformation...'
 
-MAX_REQUESTS=3000
+MAX_REQUESTS=5000
 CURRENT_PARRALEL_REQUESTS=1
-
-echo $CURRENT_PARRALEL_REQUESTS
 
 while true
 do
