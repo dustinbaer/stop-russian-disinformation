@@ -10,10 +10,15 @@ sh stop-russian-disinformation.sh &
 
 You need to run it on a linux machine with a bash shell installed
 
-# Build Docker Container
+# Build Docker Image
 
 ```
 docker build -t stop-russian-disinformation -f stop-russian-disinformation.Dockerfile .
+```
+# Pull Docker Image
+
+```
+docker pull ghcr.io/dustinbaer/stop-russian-disinformation:latest
 ```
 
 # Run Docker Container
@@ -21,6 +26,13 @@ docker build -t stop-russian-disinformation -f stop-russian-disinformation.Docke
 ```
 docker run -t stop-russian-disinformation
 ```
+
+## recommended option
+```
+docker run -dt stop-russian-disinformation
+```
+
+The 'd' starts the docker container container in 'detached mode'
 
 # Disclaimer 
 
