@@ -1,0 +1,21 @@
+name: pull request workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mr-smithers-excellent/docker-build-push@v5.6 
+        name: Build & push Docker image 
+        id: publish-docker-image
+        with:
+          image: stop-russian-disinformation
+          tags: latest
+          registry: ghcr.io
+          username: ${{ secrets.CI_CD_EMAIL }}
+          password: ${{ secrets.CI_CD_TOKEN }}

@@ -13,7 +13,7 @@ You need to run it on a linux machine with a bash shell installed
 # Build Docker Image
 
 ```
-docker build -t stop-russian-disinformation -f stop-russian-disinformation.Dockerfile .
+docker build -t stop-russian-disinformation -f Dockerfile .
 ```
 # Pull Docker Image
 
