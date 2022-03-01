@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk --no-cache update && \
     apk --no-cache upgrade && \
-    apk --no-cache add curl
+    apk --no-cache add curl bash
 
 RUN mkdir stop-russian-disinformation
 
