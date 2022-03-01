@@ -1,10 +1,8 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
-RUN apt update -y
-
-RUN apt upgrade -y
-
-RUN apt install curl -y
+RUN apk --no-cache update && \
+    apk --no-cache upgrade && \
+    apk --no-cache add curl
 
 RUN mkdir stop-russian-disinformation
 
