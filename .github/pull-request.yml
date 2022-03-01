@@ -1,0 +1,20 @@
+name: pull request workflow
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  publish-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mr-smithers-excellent/docker-build-push@v5.6
+        name: Build & push Docker image
+        if: github.ref == 'refs/heads/master'
+        id: publish-docker-image
+        with:
+          image: ${{ github.event.repository.name }}
+          tags: latest
+          registry: ghcr.io
+          dockerfile: stop-russian-disinformation.Dockerfile
+          username: ${{ secrets.CI_CD_EMAIL }}
+          password: ${{ secrets.CI_CD_TOKEN }}
