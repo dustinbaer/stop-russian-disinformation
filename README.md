@@ -34,6 +34,24 @@ docker run -dt stop-russian-disinformation
 
 The 'd' starts the docker container container in 'detached mode'
 
+
+## advanced option
+
+one can define targets, if he modifies the `targets/targtes.csv` file.
+It's a simple csv file, that contains the needed URL, under the TARGET column. 
+
+```
+TARGET
+URL_1
+URL_2
+URL_N
+```
+
+If the file was defined, mount the `targets` directory
+```
+docker run -v $(pwd)/targets:/stop-russian-disinformation/targets
+```
+
 # Disclaimer 
 
 Use it on your own risk, because DDoS-Attacks are placed 
